@@ -2,22 +2,22 @@ export default function Projects({ theme }) {
   const projectList = [
     {
       id: 1,
-      title: 'Portofolio',
-      desc: 'Website portofolio saya sendiri',
-      tech: ['React', 'CSS'],
-      image: '/porto.png'
+      title: 'Aplikasi Manajemen Mahasiswa',
+      desc: 'Aplikasi pengelolaan data mahasiswa interaktif berbasis web dengan fitur pencarian, statistik real-time, dan penyimpanan LocalStorage.',
+      tech: ['HTML', 'CSS', 'JavaScript'],
+      image: '/project1.png'
     },
     {
       id: 2,
-      title: 'Sistem Informasi Mahasiswa',
-      desc: 'Aplikasi pengelolaan data mahasiswa berbasis web menggunakan Laravel.',
-      tech: ['Laravel', 'MySQL'],
-      image: '/SIM.png'
+      title: 'Sistem Informasi Inventaris Barang',
+      desc: 'Sistem manajemen inventaris berbasis Laravel 11 dan Blade templates, lengkap dengan Eloquent ORM dan fitur cetak PDF.',
+      tech: ['PHP', 'Laravel', 'MySQL'],
+      image: '/project2.png'
     },
     {
       id: 3,
       title: 'Aplikasi D-RENT',
-      desc: 'Perancangan UI/UX aplikasi penyewaan mobil berbasis mobile dengan navigasi yang intuitif, cepat, dan elegan.',
+      desc: 'Desain antarmuka aplikasi rental mobil modern yang interaktif dan ramah pengguna untuk kemudahan pemesanan kendaraan.',
       tech: ['Figma'],
       image: '/figma.png'
     }
@@ -25,19 +25,21 @@ export default function Projects({ theme }) {
 
   return (
     <section id="projects" style={styles.section}>
-      <h2 style={{ ...styles.heading, WebkitTextStroke: theme.textStroke }}>Latest Projects</h2>
+      <h2 style={{ ...styles.heading, WebkitTextStroke: theme.textStroke }}>My Projects</h2>
       <div style={styles.grid}>
         {projectList.map((project) => (
-          <div key={project.id} style={{ ...styles.card, background: theme.cardBg, borderColor: theme.borderColor }}>
-            <div style={styles.imageContainer}>
-              <img src={project.image} alt={project.title} style={styles.projectImage} />
+          <div key={project.id} className="floating-card" style={{ ...styles.card, background: theme.cardBg, borderColor: theme.borderColor }}>
+            <div style={styles.imageWrapper}>
+              <img src={project.image} alt={project.title} style={styles.projectImg} />
             </div>
-            <div style={styles.contentContainer}>
-              <h3 style={{ ...styles.cardTitle, color: theme.textColor, WebkitTextStroke: theme.textStroke }}>{project.title}</h3>
-              <p style={{ ...styles.desc, color: theme.subText, WebkitTextStroke: theme.subTextStroke }}>{project.desc}</p>
-              <div style={styles.tags}>
+            <div style={styles.content}>
+              <h3 style={{ ...styles.projectTitle, color: theme.textColor, WebkitTextStroke: theme.textStroke }}>{project.title}</h3>
+              <p style={{ ...styles.projectDesc, color: theme.subText, WebkitTextStroke: theme.subTextStroke }}>{project.desc}</p>
+              <div style={styles.techContainer}>
                 {project.tech.map((t, idx) => (
-                  <span key={idx} style={styles.tag}>{t}</span>
+                  <span key={idx} style={{ ...styles.techBadge, background: theme.dark ? 'rgba(34, 197, 94, 0.2)' : 'rgba(34, 197, 94, 0.15)', color: theme.dark ? '#4ade80' : '#15803d' }}>
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
@@ -52,12 +54,12 @@ const styles = {
   section: { padding: '5rem 2rem', maxWidth: '1100px', margin: '0 auto' },
   heading: { fontSize: '2rem', marginBottom: '2.5rem', textAlign: 'center', color: '#22c55e' },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' },
-  card: { borderRadius: '14px', border: '1px solid', boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)', overflow: 'hidden', display: 'flex', flexDirection: 'column' },
-  imageContainer: { width: '100%', height: '180px', overflow: 'hidden', borderBottom: '1px solid rgba(34, 197, 94, 0.2)' },
-  projectImage: { width: '100%', height: '100%', objectFit: 'cover' },
-  contentContainer: { padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 },
-  cardTitle: { fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 'bold' },
-  desc: { margin: '0.5rem 0 1rem 0', fontSize: '0.9rem', lineHeight: '1.5', flex: 1, fontWeight: '500' },
-  tags: { display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: 'auto' },
-  tag: { backgroundColor: 'rgba(34, 197, 94, 0.15)', color: '#16a34a', border: '1px solid rgba(34, 197, 94, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '600' }
+  card: { borderRadius: '15px', border: '1px solid', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)' },
+  imageWrapper: { width: '100%', height: '180px', overflow: 'hidden', background: '#111' },
+  projectImg: { width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' },
+  content: { padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 },
+  projectTitle: { fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.8rem' },
+  projectDesc: { fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.2rem', flex: 1, fontWeight: '500' },
+  techContainer: { display: 'flex', gap: '0.5rem', flexWrap: 'wrap' },
+  techBadge: { fontSize: '0.75rem', padding: '0.3rem 0.8rem', borderRadius: '20px', fontWeight: '600' }
 };

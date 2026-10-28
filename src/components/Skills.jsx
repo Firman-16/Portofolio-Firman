@@ -3,8 +3,8 @@ import { SiLaravel, SiMysql, SiFigma } from 'react-icons/si';
 
 export default function Skills({ theme }) {
   const skillList = [
-    { name: 'HTML', icon: <FaHtml5 color="#e34f26" /> },
-    { name: 'CSS', icon: <FaCss3Alt color="#1572b6" /> },
+    { name: 'HTML5', icon: <FaHtml5 color="#e34f26" /> },
+    { name: 'CSS3', icon: <FaCss3Alt color="#1572b6" /> },
     { name: 'JavaScript', icon: <FaJs color="#f7df1e" /> },
     { name: 'React.js', icon: <FaReact color="#61dafb" /> },
     { name: 'PHP', icon: <FaPhp color="#777bb3" /> },
@@ -20,7 +20,7 @@ export default function Skills({ theme }) {
       <h2 style={{ ...styles.heading, WebkitTextStroke: theme.textStroke }}>My Skills</h2>
       <div style={styles.grid}>
         {skillList.map((skill, idx) => (
-          <div key={idx} style={{ ...styles.skillCard, background: theme.cardBg, borderColor: theme.borderColor }}>
+          <div key={idx} className="floating-card" style={{ ...styles.skillCard, background: theme.cardBg, borderColor: theme.borderColor }}>
             <span style={styles.iconStyle}>{skill.icon}</span>
             <span style={{ ...styles.skillName, color: theme.textColor, WebkitTextStroke: theme.textStroke }}>{skill.name}</span>
           </div>
@@ -41,8 +41,7 @@ const styles = {
     display: 'flex', 
     alignItems: 'center', 
     gap: '1rem', 
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.2s ease'
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
   },
   iconStyle: { fontSize: '1.8rem', display: 'flex', alignItems: 'center' },
   skillName: { fontWeight: '600', fontSize: '1rem' }

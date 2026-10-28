@@ -1,38 +1,59 @@
-/* src/index.css */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-}
+/* ==========================================
+   ANIMASI MELAYANG & INTERAKTIF PORTOFOLIO
+   ========================================== */
 
-body {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #0d2818 0%, #1d120c 50%, #2c1810 100%);
-  background-attachment: fixed;
-  color: #f1f5f9;
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Animasi berjalan dari kanan ke kiri saat tema diganti */
-@keyframes slideFromRight {
+/* 1. Animasi Melayang Halus (Floating) */
+@keyframes float {
   0% {
-    opacity: 0;
-    transform: translateX(50px);
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
   }
   100% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px);
   }
 }
 
-.theme-transition {
-  animation: slideFromRight 0.4s ease-in-out;
+/* 2. Animasi Denyut / Glow pada Foto Profil */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.8), 0 0 45px rgba(133, 77, 14, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+  }
+}
+
+/* Class untuk Foto Profil Melayang */
+.floating-profile {
+  animation: float 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.floating-profile:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Class untuk Kartu/Elemen yang Mengambang Halus */
+.floating-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.floating-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(34, 197, 94, 0.25) !important;
+}
+
+/* Class untuk Tombol yang Membesar dan Membal saat Hover */
+.interactive-btn {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+}
+
+.interactive-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
 }
