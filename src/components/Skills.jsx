@@ -3,8 +3,8 @@ import { SiLaravel, SiMysql, SiFigma } from 'react-icons/si';
 
 export default function Skills({ theme }) {
   const skillList = [
-    { name: 'HTML5', icon: <FaHtml5 color="#e34f26" /> },
-    { name: 'CSS3', icon: <FaCss3Alt color="#1572b6" /> },
+    { name: 'HTML', icon: <FaHtml5 color="#e34f26" /> },
+    { name: 'CSS', icon: <FaCss3Alt color="#1572b6" /> },
     { name: 'JavaScript', icon: <FaJs color="#f7df1e" /> },
     { name: 'React.js', icon: <FaReact color="#61dafb" /> },
     { name: 'PHP', icon: <FaPhp color="#777bb3" /> },

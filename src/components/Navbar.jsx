@@ -1,15 +1,16 @@
 export default function Navbar({ isDarkMode, toggleTheme, theme }) {
-  // Warna teks menu navigasi diatur hijau (#22c55e), tebal, dan tanpa garis bawah
   const navLinkStyle = {
     color: '#22c55e', 
     fontWeight: '700', 
     textDecoration: 'none',
-    WebkitTextStroke: theme.textStroke
+    cursor: 'pointer'
   };
 
+  const logoColor = theme.textColor;
+
   return (
-    <nav style={{ ...styles.nav, borderBottomColor: theme.borderColor }}>
-      <h2 style={{ ...styles.logo, color: theme.textColor, WebkitTextStroke: theme.textStroke }}>
+    <nav style={{ ...styles.nav, borderBottomColor: theme.borderColor, background: theme.dark ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.9)' }}>
+      <h2 style={{ ...styles.logo, color: logoColor }}>
         Firman<span style={styles.dot}>.</span>
       </h2>
       <ul style={styles.menu}>
@@ -30,7 +31,19 @@ export default function Navbar({ isDarkMode, toggleTheme, theme }) {
 }
 
 const styles = {
-  nav: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.2rem 3rem', background: 'rgba(29, 18, 12, 0.9)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid' },
+  nav: { 
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    padding: '1.2rem 4rem', 
+    width: '100%',
+    backdropFilter: 'blur(12px)', 
+    position: 'fixed', 
+    top: 0, 
+    left: 0,
+    zIndex: 9999, 
+    borderBottom: '1px solid rgba(255, 255, 255, 0.1)' 
+  },
   logo: { fontSize: '1.5rem', fontWeight: 'bold', letterSpacing: '1px' },
   dot: { color: '#4ade80' },
   menu: { display: 'flex', gap: '2rem', listStyle: 'none', fontSize: '0.9rem', alignItems: 'center' },

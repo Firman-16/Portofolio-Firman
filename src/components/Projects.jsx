@@ -2,17 +2,17 @@ export default function Projects({ theme }) {
   const projectList = [
     {
       id: 1,
-      title: 'Aplikasi Manajemen Mahasiswa',
-      desc: 'Aplikasi pengelolaan data mahasiswa interaktif berbasis web dengan fitur pencarian, statistik real-time, dan penyimpanan LocalStorage.',
-      tech: ['HTML', 'CSS', 'JavaScript'],
-      image: '/project1.png'
+      title: 'Portofolio',
+      desc: 'Website portofolio yang dibuat menggunakan React JS.',
+      tech: ['React', 'CSS'],
+      image: '/porto.png'
     },
     {
       id: 2,
-      title: 'Sistem Informasi Inventaris Barang',
-      desc: 'Sistem manajemen inventaris berbasis Laravel 11 dan Blade templates, lengkap dengan Eloquent ORM dan fitur cetak PDF.',
-      tech: ['PHP', 'Laravel', 'MySQL'],
-      image: '/project2.png'
+      title: 'Sistem Informasi Mahasiswa',
+      desc: 'Aplikasi pengelolaan data mahasiswa berbasis web menggunakan Laravel.',
+      tech: ['Laravel', 'MySQL'],
+      image: '/SIM.png'
     },
     {
       id: 3,
